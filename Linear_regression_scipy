@@ -1,0 +1,23 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import linregress
+
+# Generating random data
+np.random.seed(0)
+x = np.random.randn(100) * 10
+y = x + np.random.randn(100) * 3 + 5
+
+# Perform linear regression
+slope, intercept, r_value, p_value, std_err = linregress(x, y)
+
+# Calculate fitted line
+fit = slope * x + intercept
+
+# Plot data and fitted line
+plt.scatter(x, y, color='blue', label='Data Points')
+plt.plot(x, fit, color='red', label='Fitted Line')
+plt.legend(loc='upper left')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Linear Regression Result')
+plt.show()
